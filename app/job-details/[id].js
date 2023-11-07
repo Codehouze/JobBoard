@@ -21,17 +21,49 @@ import {
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hook/useFetch";
 
-function JobDetails() {
+const tabs = ["About", "Qualifications", "Responsibilities"];
+
+const JobDetails = () => {
   const params = useSearchParams();
   const router = useRouter();
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
   const onRefresh = () => {};
-  // get the details of a particular job details
+
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case "Qualifications":
+        return (
+          // TODO: retrieve job specifics
+          <Specifics
+            title="Qualifications"
+            points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
+          />
+        );
+        break;
+      case "About":
+        return (
+          // TODO: retrieve about the role
+          <JobAbout info={data[0].job_description ?? "No data provided"} />
+        );
+      case "Responsibilities":
+        return (
+          <Specifics
+            title="Responsibilities"
+            points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
+          />
+        );
+      default:
+        break;
+    }
+  };
+
+  //TODO: get the details of a particular job details
   const { data, isLoading, error, refetch } = useFetch("job-details", {
     job_id: params.id,
   });
 
-  console.log(data);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
@@ -73,13 +105,19 @@ function JobDetails() {
                 companyName={data[0].employer_name}
                 location={data[0].job_country}
               />
-              <JobTabs />
+              <JobTabs
+                tabs={tabs}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+
+              {displayTabContent()}
             </View>
           )}
         </ScrollView>
       </>
     </SafeAreaView>
   );
-}
+};
 
 export default JobDetails;
