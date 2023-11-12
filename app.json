@@ -5,11 +5,17 @@
       "web": {
         "bundler": "metro"
       },
-      "name": "jobsift",
-      "slug": "jobsift",
+      "name": "Job Board",
+      "slug": "Job-Board",
       "version": "1.0.0",
+      "description": "A job board,these portals serve as a centralized hub for job seekers to search for employment opportunities and for employers to post job listings and find suitable candidates.",
       "orientation": "portrait",
       "icon": "./assets/icon.png",
+      "splash":{
+        "image": "./assets/splash.png",
+        "contentFit":"contain",
+        "backgroundColor": "#ffffff"
+      },
       "userInterfaceStyle": "automatic"
     }
 }

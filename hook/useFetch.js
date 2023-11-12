@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const rapidApiKey = "f6fe9dd135msh600ede098bc7d3cp19ae97jsne4d9c4c63fcc";
+// f6fe9dd135msh600ede098bc7d3cp19ae97jsne4d9c4c63fcc
+const rapidApiKey = "07dee72154msh341f0e3059fdf3ep131335jsn975f7fc853b5";
+
 const useFetch = (endpoint, query) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
