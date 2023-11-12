@@ -31,7 +31,8 @@ const JobSearch = () => {
 
     try {
       // f6fe9dd135msh600ede098bc7d3cp19ae97jsne4d9c4c63fcc
-      const rapidApiKey = "07dee72154msh341f0e3059fdf3ep131335jsn975f7fc853b5";
+      // 07dee72154msh341f0e3059fdf3ep131335jsn975f7fc853b5
+      const rapidApiKey = "";
       const options = {
         method: "GET",
         url: `https://jsearch.p.rapidapi.com/search`,
